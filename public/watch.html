@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Stream</title>
-    <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe
-      id="yt"
-      allow="autoplay; encrypted-media"
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-
-    <script>
-      // Pull YouTube embed link from ?url=
-      const params = new URLSearchParams(window.location.search);
-      const url = params.get("url");
-      if (url) document.getElementById("yt").src = url;
-      else document.body.innerHTML =
-        "<h3 style='color:white;text-align:center;margin-top:20%'>No video link provided</h3>";
-    </script>
-  </body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Stream</title>
+<style>
+  body, html {margin:0;padding:0;height:100%;width:100%;background:black;}
+  iframe {width:100%;height:100%;border:none;}
+</style>
+</head>
+<body>
+<iframe id="yt" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const url = params.get("url");
+  if(url) document.getElementById("yt").src = url;
+  else document.body.innerHTML = "<h3 style='color:white;text-align:center;margin-top:20%'>No video link provided</h3>";
+</script>
+</body>
 </html>
